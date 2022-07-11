@@ -23,7 +23,7 @@ public class Game {
 		
 		if(Guess.equals("1") || Guess.equals("2") || Guess.equals("3")) {
 			numOfHits++;
-			System.out.println("HIT");
+			System.out.println("YOU HIT!!!");
 		}else {
 			System.out.println("You miss");
 		}
