@@ -2,31 +2,23 @@
 public class Game {
 	
 	private int[] locationCells;
-	private int numOfHits;
+	private int numOfHits = 0;
 	
-	//Constructor
-	public Game() {
-		locationCells = new int[7];
-		locationCells[1] = 1;
-		locationCells[2] = 1;
-		locationCells[3] = 1;
-		numOfHits = 0;
-	}
-	
-	//Set Location Function
-	public void setLocation() {
-		
-	}
-	
+
 	//Check Function
 	public String check(String Guess) {
-		
-		if(Guess.equals("1") || Guess.equals("2") || Guess.equals("3")) {
-			numOfHits++;
-			System.out.println("YOU HIT!!!");
-		}else {
-			System.out.println("You miss");
+		int GuessInt = Integer.parseInt(Guess);
+		for (int x : locationCells) {
+			if(GuessInt==x) {
+				numOfHits++;
+				return "YOU HIT!!!";
+			}else {
+				numOfHits++;
+				return "You miss";
+			}
+			
 		}
+		
 		
 		if(numOfHits == 3) {
 			return "You Win";
