@@ -7,23 +7,22 @@ public class Game {
 
 	//Check Function
 	public String check(String Guess) {
+		String result = "You miss\n";
 		int GuessInt = Integer.parseInt(Guess);
+		
 		for (int x : locationCells) {
 			if(GuessInt==x) {
 				numOfHits++;
-				return "YOU HIT!!!";
-			}else {
-				numOfHits++;
-				return "You miss";
-			}
+				if(numOfHits == locationCells.length) {
+					result = "You Win";
+				}else {
+					result = "YOU HIT!!!\n";
+				}		
 			
+			}
 		}
 		
-		
-		if(numOfHits == 3) {
-			return "You Win";
-		}
-		return "";
+		return result;
 		
 	}
 
