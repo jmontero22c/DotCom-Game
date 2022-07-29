@@ -1,45 +1,43 @@
+import java.util.ArrayList;
 
 public class Game {
-	
-	private int[] locationCells;
-	private int numOfHits = 0;
-	
 
-	//Check Function
-	public String check(String Guess) {
+	private ArrayList<String> locationCells;
+	private int need_to_hit;
+
+	// Check Function
+	public String check(String userInput) {
 		String result = "You miss\n";
-		int GuessInt = Integer.parseInt(Guess);
-		
-		for (int x : locationCells) {
-			if(GuessInt==x) {
-				numOfHits++;
-				if(numOfHits == locationCells.length) {
-					result = "You Win";
-				}else {
-					result = "YOU HIT!!!\n";
-				}		
-			
+
+		int index = locationCells.indexOf(userInput);
+
+		if (index >= 0) {
+			locationCells.remove(index);
+			if (locationCells.isEmpty()) {
+				result = "You kill";
+			} else {
+				result = "You Hit\n";
 			}
+
 		}
-		
+		System.out.println("Lista: "+locationCells);
 		return result;
-		
+
 	}
 
+	// Getters and Setters
 
-	//Getters and Setters
-	public int[] getLocationCells() {
-		return locationCells;
+	public void setLocationCells(ArrayList<String> cells) {
+		this.locationCells = cells;
+
 	}
-	public void setLocationCells(int[] locationCells) {
-		this.locationCells = locationCells;
-	}
+
 	public int getNumOfHits() {
-		return numOfHits;
+		return need_to_hit;
 	}
+
 	public void setNumOfHits(int numOfHits) {
-		this.numOfHits = numOfHits;
+		this.need_to_hit = numOfHits;
 	}
-	
-	
+
 }
